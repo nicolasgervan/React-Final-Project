@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MainView from './mainView/mainView';
 import HomeView from './homeView/homeView';
-import AboutView from './aboutView/aboutView';
+import FavouriteView from './favouriteView/favouriteView';
 
 const getRoutes = function() {
     return (
@@ -10,7 +10,7 @@ const getRoutes = function() {
             <Route name="Main" component={MainView} />
             <Switch>
                 <Route exact path="/" component={HomeView} />
-                <Route path="/about" component={AboutView} />
+                <Route path="/favourite" component={FavouriteView} />
             </Switch>
         </div>
     )

@@ -14,3 +14,9 @@ li {
     display: inline-block;
     margin: 0 10px;
 }
+
+.btn-search-box{
+    width: 60% !important;
+    text-align: center;
+    margin: 0 auto;
+}
