@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchSearchArtists } from '../../api/api'
 import store from '../../store.js';
 import { artistsList } from '../../actionCreators.js';
+import history from '../../history.js';
 
 class SearchInput extends Component {
     constructor(props){
@@ -38,6 +39,7 @@ class SearchInput extends Component {
         return fetchSearchArtists(this.state.filterArtist)
         .then(data => {
             store.dispatch(artistsList(data.artists.items));
+            history.push('/callback');
           })
         .catch(error => console.error(error))
     };

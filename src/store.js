@@ -27,4 +27,4 @@ const reducer = (state,action) => {
 	return state;
 }
 
-export default createStore(reducer, { token: null, query: null, artistSearchList: [], artist: null, album: null });
+export default createStore(reducer, { token: null, query: null, artistSearchList: [], artist: null, album: null }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

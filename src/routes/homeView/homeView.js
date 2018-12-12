@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import store from '../../store';
 
 const Artist = props => {
     return(
@@ -27,9 +26,6 @@ class HomeView extends Component {
         const token = parsed.access_token;
         localStorage.setItem('token', token);
     }
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-      }
     render() {
         return (
             <div className="home-view text-center">
