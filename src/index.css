@@ -19,4 +19,60 @@ li {
     width: 60% !important;
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.artist-container{
+    float: left;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.track-item{
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.track-item svg{
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#tracklist-title{
+	border: 0px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+#tracklist-title:hover{
+	z-index: 0;
+}
+
+audio{
+    z-index: 1;
+}
+
+#player{
+	background-color: #343a40;
+	padding: 10px 10px 5px 10px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+	text-align: left;
+}
+
+#player-fix{
+	width: 100%;
+	height: 76px;
+}
+
+.hide-player{
+	display: none;
+}
+
+.show-player{
+	display: block;
 }
