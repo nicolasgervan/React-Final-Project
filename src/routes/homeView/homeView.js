@@ -24,7 +24,7 @@ class HomeView extends Component {
         var parsed = queryString.parse(props.location.hash);
         console.log(parsed);
         const token = parsed.access_token;
-        localStorage.setItem('token', token);
+        sessionStorage.setItem('token', token);
     }
     render() {
         return (

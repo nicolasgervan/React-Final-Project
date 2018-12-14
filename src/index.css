@@ -76,3 +76,41 @@ audio{
 .show-player{
 	display: block;
 }
+
+.btn-search{
+    margin-left: 5px;
+}
+
+.song-name{
+    font-size: 14px;
+}
+
+.play-icon{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.star-icon{
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.star-icon:hover{
+    font-weight: 800;
+}
+
+.star-icon-fav{
+    font-weight: 800;
+    margin-top: 5px;
+    cursor: pointer;
+    float: right;
+}
+
+.album-img{
+    margin-bottom: 10px;
+}
+
+.home-view{
+    margin-top: 20px;
+}

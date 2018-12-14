@@ -3,21 +3,8 @@ import { connect } from 'react-redux';
 import { fetchAlbumTracks } from '../../api/api'
 import store from '../../store.js';
 import { setAlbum } from '../../actionCreators.js';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faStar } from '@fortawesome/free-solid-svg-icons'
+import Track from './track.js'
 
-library.add(faPlayCircle, faStar)
-
-const Track = props => {
-    return(
-        <li id={props.preview} className="list-group-item track-item" onClick={props.handler}>
-            <FontAwesomeIcon icon="play-circle" />
-            <FontAwesomeIcon icon="star" />
-            {props.data.name}
-        </li> 
-    )
-}
 
 class AlbumView extends Component {
     constructor(props){
@@ -48,7 +35,7 @@ class AlbumView extends Component {
         .catch(error => console.error(error))
     }
 
-    handlerPlayTrack(e){
+    handlePlay(e){
         this.setState({preview: e.target.id});
         this.setState({show_preview: 'show-player'});
         this.refs.audio_player.load();
@@ -59,13 +46,15 @@ class AlbumView extends Component {
         return (
             <div className="home-view text-center">
                 <h2>{this.state.album.name}</h2>
+                <img height="400" className="album-img" src={this.state.album.images[0] ? this.state.album.images[0].url : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"} alt={this.state.album.name}></img>
                 <ul className="list-group">
                     {this.state.tracksList.map((item,key)=>
                             <Track
                             data={item}
                             key={key}
                             preview={item.preview_url}
-                            handler={this.handlerPlayTrack.bind(this)}
+                            id={item.id}
+                            handlePlay={this.handlePlay.bind(this)}
                             />
                         )
                     }

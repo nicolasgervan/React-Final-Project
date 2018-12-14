@@ -5,7 +5,6 @@ class LoginView extends Component {
     	super();
     	this.handleClick = this.handleClick.bind(this);
     	this.client_id = '8b3bc08d24aa40638162ab1b4ef716a9';
-    	//this.client_secret = 'ae460ecf66af4c3f91001a990decd3e3';
         this.redirect_uri = 'http://localhost:3000/callback';
     	this.response_type = 'token';
     	this.scope = 'user-read-private user-read-email';

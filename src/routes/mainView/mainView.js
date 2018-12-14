@@ -2,6 +2,7 @@ import './mainView.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SearchInput from '../../components/searchInput/searchInput';
+import logo from '../../assets/spotifylogo.png';
 
 class MainView extends Component {
     render() {
@@ -9,18 +10,24 @@ class MainView extends Component {
             <div>
                 <div className="main-view">
                     <header className="main-view__header">
-                        <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png" width="50" />
+                        <img src={logo} width="50" />
                         <h2>Spotisearch</h2>
                     </header>
-                    <nav className="main-view__nav">
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/favourite">My favourite songs</Link></li>
-                        </ul>
+
+                    <nav className="navbar navbar-dark bg-dark">
+                        <div className="collapse navbar-collapse show">
+                            <ul className="nav justify-content-center">
+                                <li className="nav-item"><Link to="/">Login</Link></li>
+                                <li className="nav-item"><Link to="/callback">Home</Link></li>
+                                <li className="nav-item"><Link to="/favourite">My favourite songs</Link></li>
+                            </ul>
+                        </div>
                     </nav>
+
                 </div>
                 <div className="home-view text-center">
-                    <p>Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!</p>
+                    <p>Search your favourite songs over Spotify,
+                        <br></br>just enter an artist's name in the following search box and enjoy!</p>
                     <SearchInput></SearchInput>
                 </div>
             </div>

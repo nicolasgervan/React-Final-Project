@@ -1,11 +1,9 @@
-const ACCESS_TOKEN = localStorage.getItem('token');
-
 const config = {
     baseUrl : "https://api.spotify.com/v1/",
     options: {
         method: 'GET',
         headers: {
-        'Authorization': 'Bearer ' + ACCESS_TOKEN
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
         },
         mode: 'cors',
         cache: 'default'

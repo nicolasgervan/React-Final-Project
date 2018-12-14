@@ -25,11 +25,19 @@ function fetchAlbumTracks(idAlbum){
     return fetchData(url,config); 
 }
 
+function fetchFavTracks(ids){
+    const url = config.baseUrl + "tracks/?ids=" + ids.toString(); 
+    return fetchData(url,config); 
+}
+
 function fetchData(url){
+    config.options.headers = {
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+    };
     return fetch(url, config.options)
         .then(response => response.json())
         .then(data => {return data})
     .catch(error => console.error(error)) 
 }
 
-export { fetchSearchArtists, fetchArtist , fetchArtistAlbums, fetchAlbum , fetchAlbumTracks}
+export { fetchSearchArtists, fetchArtist , fetchArtistAlbums, fetchAlbum , fetchAlbumTracks, fetchFavTracks}

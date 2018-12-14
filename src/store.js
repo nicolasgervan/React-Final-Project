@@ -22,9 +22,19 @@ const reducer = (state,action) => {
 			...state,
 			artist: action.artist
 		}
+	} else if (action.type == 'ADD_FAV') {
+		return {
+			...state,
+			favouriteSongs: state.favouriteSongs.concat(action.id)
+		}
+	} else if (action.type == 'REMOVE_FAV') {
+		return {
+			...state,
+			favouriteSongs: state.favouriteSongs.filter(song => song !== action.id)
+		}
 	}
 
 	return state;
 }
 
-export default createStore(reducer, { token: null, query: null, artistSearchList: [], artist: null, album: null }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStore(reducer, { token: null, query: null, artistSearchList: [], artist: null, album: null, favouriteSongs: [] }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

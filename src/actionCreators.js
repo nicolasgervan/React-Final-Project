@@ -33,4 +33,18 @@ const setAlbum = album => {
 	}
 }
 
-export { setToken, setQuery, artistsList, setArtist, setAlbum };
+const addFav = id => {
+	return {
+		type: 'ADD_FAV',
+		id: id
+	}
+}
+
+const removeFav = id => {
+	return {
+		type: 'REMOVE_FAV',
+		id: id
+	}
+}
+
+export { setToken, setQuery, artistsList, setArtist, setAlbum, addFav, removeFav };

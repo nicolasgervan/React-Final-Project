@@ -23,7 +23,7 @@ class SearchInput extends Component {
             <div className="btn-search-box input-group">
                 <input type="text" className="form-control" id="searchArtistInput" onChange={this.handleSearchValue} onKeyPress={this.handleEnter}></input>
                 <span className="input-group-btn">
-                    <button className="btn btn-default btn-search" type="button" onClick={this.handleSearchArtists} onKeyPress={this.handleEnter.bind(this)}>Search!</button>
+                    <button className="btn btn-default btn-search" type="button" onClick={this.handleSearchArtists} onKeyPress={this.handleEnter.bind(this)}>Search</button>
                 </span>
             </div>
         );
