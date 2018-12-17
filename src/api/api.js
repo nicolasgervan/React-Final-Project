@@ -1,4 +1,6 @@
-import config from '../config'
+import config from '../config';
+import store from '../store.js';
+
 
 function fetchSearchArtists(artist){
     const url = config.baseUrl + "search?q=" + artist + "&type=artist"
@@ -31,10 +33,11 @@ function fetchFavTracks(ids){
 }
 
 function fetchData(url){
-    config.options.headers = {
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+    const testConfig = config;
+    testConfig.options.headers = {
+        'Authorization': 'Bearer ' + store.getState().token
     };
-    return fetch(url, config.options)
+    return fetch(url, testConfig.options)
         .then(response => response.json())
         .then(data => {return data})
     .catch(error => console.error(error)) 

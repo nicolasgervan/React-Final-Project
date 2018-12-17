@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import store from '../../store.js';
+import { setToken } from '../../actionCreators.js';
 
 const Artist = props => {
     return(
@@ -24,7 +26,10 @@ class HomeView extends Component {
         var parsed = queryString.parse(props.location.hash);
         console.log(parsed);
         const token = parsed.access_token;
-        sessionStorage.setItem('token', token);
+        if(token){
+            sessionStorage.setItem('token', token);
+            store.dispatch(setToken(token));
+        }
     }
     render() {
         return (

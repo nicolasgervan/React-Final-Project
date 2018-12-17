@@ -14,12 +14,14 @@ class FavouriteView extends Component {
     getFavTracks = () => {
         let keys = Object.keys(sessionStorage);
         keys = keys.filter(item => sessionStorage.getItem(item) === 'true');
-        fetchFavTracks(keys)
-        .then(data => {
-            this.setState({'tracksList' : data.tracks})
-            console.log(data);         
-          })
-        .catch(error => console.error(error))
+        if(keys.length > 0){
+            fetchFavTracks(keys)
+            .then(data => {
+                this.setState({'tracksList' : data.tracks})
+                console.log(data);         
+              })
+            .catch(error => console.error(error))
+        }   
     }
 
     render() {    

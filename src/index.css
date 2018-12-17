@@ -114,3 +114,7 @@ audio{
 .home-view{
     margin-top: 20px;
 }
+
+.navbar{
+    height: 40px;
+}
