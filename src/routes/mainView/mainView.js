@@ -1,7 +1,7 @@
 import './mainView.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import SearchInput from '../../components/searchInput/searchInput';
+import SearchInput from '../../components/SearchInput/SearchInput';
 import logo from '../../assets/spotifylogo.png';
 
 class MainView extends Component {

@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import store from '../../store.js';
 import { setToken } from '../../actionCreators.js';
-
-const Artist = props => {
-    return(
-        <Link to={{ pathname: '/artist', state: { artist: props.data } }}>
-            <div className="artist-container">
-                <img width="250" src={props.data.images[0] ? props.data.images[0].url : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"} alt={props.data.name}></img>
-                <div><p>{props.data.name}</p></div> 
-            </div>   
-        </Link>         
-    )
-}
+import Artist from '../../components/Artist/Artist';
 
 class HomeView extends Component {
     constructor(props){
