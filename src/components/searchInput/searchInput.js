@@ -41,7 +41,11 @@ class SearchInput extends Component {
             store.dispatch(artistsList(data.artists.items));
             history.push('/callback');
           })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error)
+            sessionStorage.clear();
+            history.push('/');
+        })
     };
 
     handleSearchValue(e){

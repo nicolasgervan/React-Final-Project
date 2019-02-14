@@ -27,11 +27,7 @@ class ArtistView extends Component {
         store.dispatch(setArtist(this.state.artist));
     }
 
-    componentDidMount(){
-        this.getAlbums();
-    }
-
-    getAlbums = () => {
+    getAlbums() {
         return fetchArtistAlbums(this.state.artist.id)
         .then(data => {
             this.setState({
@@ -41,6 +37,10 @@ class ArtistView extends Component {
             
           })
         .catch(error => console.error(error))
+    }
+
+    componentDidMount(){
+        this.getAlbums();
     }
 
     render() {

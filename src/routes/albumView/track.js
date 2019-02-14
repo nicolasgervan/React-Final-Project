@@ -35,8 +35,8 @@ class Track extends Component {
 
     render() {
         return(
-            <li id={this.props.preview} className="list-group-item track-item" onClick={this.props.handlePlay}>
-                <i className="far fa-play-circle play-icon"></i>
+            <li className="list-group-item track-item" onClick={this.props.handlePlay}>
+                <i id={this.props.preview} className="far fa-play-circle play-icon"></i>
                 <span className="song-name">{this.props.data.name}</span>  
                 <i id={this.props.id} className={"far fa-star " + this.state.className} onClick={this.handleFav.bind(this)} title="Add/Remove favourite"></i>     
             </li> 

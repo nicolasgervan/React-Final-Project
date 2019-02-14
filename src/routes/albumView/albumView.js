@@ -19,11 +19,7 @@ class AlbumView extends Component {
         store.dispatch(setAlbum(this.state.album));
     }
 
-    componentDidMount(){
-        this.getTracks();
-    }
-
-    getTracks = () => {
+    getTracks() {
         return fetchAlbumTracks(this.state.album.id)
         .then(data => {
             this.setState({
@@ -40,6 +36,10 @@ class AlbumView extends Component {
         this.setState({show_preview: 'show-player'});
         this.refs.audio_player.load();
         this.refs.audio_player.play();
+    }
+
+    componentDidMount(){
+        this.getTracks();
     }
 
     render() {

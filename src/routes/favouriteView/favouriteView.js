@@ -8,10 +8,9 @@ class FavouriteView extends Component {
         this.state = {
             tracksList: []
         }
-        this.getFavTracks();
     }
 
-    getFavTracks = () => {
+    getFavTracks() {
         let keys = Object.keys(sessionStorage);
         keys = keys.filter(item => sessionStorage.getItem(item) === 'true');
         if(keys.length > 0){
@@ -22,6 +21,10 @@ class FavouriteView extends Component {
               })
             .catch(error => console.error(error))
         }   
+    }
+
+    componentDidMount(){
+        this.getFavTracks();
     }
 
     render() {    

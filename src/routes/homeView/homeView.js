@@ -11,25 +11,26 @@ class HomeView extends Component {
             token: '',
             artistSearchList: []
         }
-        const queryString = require('query-string');
-        var parsed = queryString.parse(props.location.hash);
-        console.log(parsed);
-        const token = parsed.access_token;
-        if(token){
-            sessionStorage.setItem('token', token);
-            store.dispatch(setToken(token));
+        if(props.location && props.location.hash){
+            const queryString = require('query-string');
+            var parsed = queryString.parse(props.location.hash);
+            console.log(parsed);
+            const token = parsed.access_token;
+            if(token){
+                sessionStorage.setItem('token', token);
+                store.dispatch(setToken(token));
+            }
         }
     }
     render() {
         return (
             <div className="home-view text-center">
                 {this.props.artistSearchList.map((item,key)=>
-                        <Artist
-                        data={item}
-                        key={key}
-                        />
-                    )
-                }
+                    <Artist
+                    data={item}
+                    key={key}
+                    />
+                )}
             </div>
         );
     }
