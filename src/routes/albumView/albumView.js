@@ -47,6 +47,7 @@ class AlbumView extends Component {
             <div className="home-view text-center">
                 <h2>{this.state.album.name}</h2>
                 <img height="400" className="album-img" src={this.state.album.images[0] ? this.state.album.images[0].url : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"} alt={this.state.album.name}></img>
+                {this.props.loading ? <div>Loading...</div> : ""}
                 <ul className="list-group">
                     {this.state.tracksList.map((item,key)=>
                             <Track
@@ -59,8 +60,7 @@ class AlbumView extends Component {
                         )
                     }
                 </ul>
-                {this.props.loading ? "Loading..." : ""}
-
+                
                 <footer ref="player-fix" id="player-fix" className={this.state.show_preview} ></footer>   
 
                 <footer id="player" ref="player" className={this.state.show_preview} >

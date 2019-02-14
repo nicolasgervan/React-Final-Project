@@ -47,14 +47,15 @@ class ArtistView extends Component {
         return (
             <div className="home-view text-center">
                 <h2>{this.state.artist.name}</h2>
-                    {this.state.albumsList ? this.state.albumsList.map((item,key)=>
-                            <Album
-                            data={item}
-                            key={key}
-                            />
-                        )
-                    : ''}
-                {this.props.loading ? "Loading..." : ""}
+                {this.props.loading ? <div>Loading...</div> : ""}
+                {this.state.albumsList ? this.state.albumsList.map((item,key)=>
+                        <Album
+                        data={item}
+                        key={key}
+                        />
+                    )
+                : ''}
+                
             </div>
         );
     }

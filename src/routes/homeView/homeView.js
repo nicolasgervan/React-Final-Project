@@ -25,13 +25,14 @@ class HomeView extends Component {
     render() {
         return (
             <div className="home-view text-center">
+                {this.props.loading ? <div>Loading...</div> : ""}
                 {this.props.artistSearchList.map((item,key)=>
                     <Artist
                     data={item}
                     key={key}
                     />
                 )}          
-                {this.props.loading ? "Loading..." : ""}
+                
             </div>
         );
     }
