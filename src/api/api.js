@@ -1,4 +1,6 @@
 import config from '../config';
+import store from '../store.js';
+import { fetchingData } from '../actionCreators.js';
 
 function fetchSearchArtists(artist){
     const url = config.baseUrl + "search?q=" + artist + "&type=artist"
@@ -31,10 +33,17 @@ function fetchFavTracks(ids){
 }
 
 function fetchData(url){
+    store.dispatch(fetchingData(true))
     return fetch(url, config.options)
         .then(response => response.json())
-        .then(data => {return data})
-    .catch(error => console.error(error)) 
+        .then(data => {
+            store.dispatch(fetchingData(false))
+            return data
+        })
+    .catch(error => {
+        console.error(error)
+        store.dispatch(fetchingData(false))
+    }) 
 }
 
 export { fetchSearchArtists, fetchArtist , fetchArtistAlbums, fetchAlbum , fetchAlbumTracks, fetchFavTracks}

@@ -47,4 +47,11 @@ const removeFav = id => {
 	}
 }
 
-export { setToken, setQuery, artistsList, setArtist, setAlbum, addFav, removeFav };
+const fetchingData = loading => {
+	return {
+		type: 'FETCHING_DATA',
+		payload: loading
+	}
+}
+
+export { setToken, setQuery, artistsList, setArtist, setAlbum, addFav, removeFav, fetchingData };

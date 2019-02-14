@@ -46,14 +46,15 @@ class ArtistView extends Component {
     render() {
         return (
             <div className="home-view text-center">
-            <h2>{this.state.artist.name}</h2>
-                {this.state.albumsList ? this.state.albumsList.map((item,key)=>
-                        <Album
-                        data={item}
-                        key={key}
-                        />
-                    )
-                : ''}
+                <h2>{this.state.artist.name}</h2>
+                    {this.state.albumsList ? this.state.albumsList.map((item,key)=>
+                            <Album
+                            data={item}
+                            key={key}
+                            />
+                        )
+                    : ''}
+                {this.props.loading ? "Loading..." : ""}
             </div>
         );
     }
@@ -61,7 +62,8 @@ class ArtistView extends Component {
 
 const mapStateToProps = state => {
     return {
-        artist: state.artist
+        artist: state.artist,
+        loading: state.loading
     };
 };
 

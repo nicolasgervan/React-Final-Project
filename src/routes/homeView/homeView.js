@@ -30,7 +30,8 @@ class HomeView extends Component {
                     data={item}
                     key={key}
                     />
-                )}
+                )}          
+                {this.props.loading ? "Loading..." : ""}
             </div>
         );
     }
@@ -38,7 +39,8 @@ class HomeView extends Component {
 
 const mapStateToProps = state => {
     return {
-        artistSearchList: state.artistSearchList
+        artistSearchList: state.artistSearchList,
+        loading: state.loading
     };
 };
 

@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 
 const reducer = (state,action) => {
 
@@ -33,8 +34,14 @@ const reducer = (state,action) => {
 			favouriteSongs: state.favouriteSongs.filter(song => song !== action.id)
 		}
 	}
+	else if (action.type == 'FETCHING_DATA') {
+		return {
+			...state,
+			loading: action.payload
+		}
+	}
 
 	return state;
 }
 
-export default createStore(reducer, { token: null, query: null, artistSearchList: [], artist: null, album: null, favouriteSongs: [] }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStore(reducer, { token: null, loading: false, query: null, artistSearchList: [], artist: null, album: null, favouriteSongs: [] }, applyMiddleware(thunk));

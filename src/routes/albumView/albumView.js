@@ -59,6 +59,7 @@ class AlbumView extends Component {
                         )
                     }
                 </ul>
+                {this.props.loading ? "Loading..." : ""}
 
                 <footer ref="player-fix" id="player-fix" className={this.state.show_preview} ></footer>   
 
@@ -76,7 +77,8 @@ class AlbumView extends Component {
 
 const mapStateToProps = state => {
     return {
-        album: state.album
+        album: state.album,
+        loading: state.loading
     };
 };
 
