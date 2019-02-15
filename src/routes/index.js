@@ -7,17 +7,6 @@ import ArtistView from './artistView/artistView';
 import AlbumView from './albumView/albumView';
 import FavouriteView from './favouriteView/favouriteView';
 
-const getRoutes = function() {
-    return (
-        <div>
-            <Switch>
-                <Route exact path="/" component={LoginView} />
-                <Route component={DefaultContainer}/>
-            </Switch>
-        </div>
-    )
-};
-
 const DefaultContainer = () => (
     <div>
         <MainView/>
@@ -29,5 +18,16 @@ const DefaultContainer = () => (
         </div>
     </div>
  )
+
+const getRoutes = function() {
+    return (
+        <div>
+            <Switch>
+                <Route exact path="/" component={LoginView} />
+                <Route component={DefaultContainer}/>
+            </Switch>
+        </div>
+    )
+};
 
 export default getRoutes;

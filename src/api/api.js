@@ -4,7 +4,7 @@ import { fetchingData } from '../actionCreators.js';
 
 function fetchSearchArtists(artist){
     const url = config.baseUrl + "search?q=" + artist + "&type=artist"
-    return fetchData(url); 
+    return fetchData(url,config); 
 }
 
 function fetchArtist(idArtist){
@@ -32,7 +32,10 @@ function fetchFavTracks(ids){
     return fetchData(url,config); 
 }
 
-function fetchData(url){
+function fetchData(url,config){
+    config.options.headers = {
+            'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+            }
     store.dispatch(fetchingData(true))
     return fetch(url, config.options)
         .then(response => response.json())

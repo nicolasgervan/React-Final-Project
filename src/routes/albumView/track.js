@@ -18,17 +18,14 @@ class Track extends Component {
 
             if(sessionStorage.getItem(e.target.id) === 'true'){
               sessionStorage.setItem(e.target.id, 'false');
-              store.dispatch(removeFav(e.target.id));
               this.setState({'className': 'star-icon'});
             }else{   
               sessionStorage.setItem(e.target.id, 'true');
-              store.dispatch(addFav(e.target.id));   
               this.setState({'className': 'star-icon-fav'});
             }
       
           }else{    
             sessionStorage.setItem(e.target.id, 'true');
-            store.dispatch(addFav(e.target.id));
             this.setState({'className': 'star-icon-fav'});
           };
     }

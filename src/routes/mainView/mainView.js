@@ -10,7 +10,7 @@ class MainView extends Component {
             <div>
                 <div className="main-view">
                     <header className="main-view__header">
-                        <img src={logo} width="50" />
+                        <img src={logo} alt="logo" width="50" />
                         <h2>Spotisearch</h2>
                     </header>
 

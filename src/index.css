@@ -79,6 +79,8 @@ audio{
 
 .btn-search{
     margin-left: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px grey;
 }
 
 .song-name{
